@@ -18,7 +18,18 @@ public class TransactionRepository {
 		super();
 		populateData();
 	}
-	
+	public Transaction save(Transaction transaction) {
+		transactions.add(transaction);
+		return transaction;
+	}
+	public Transaction findById(Long transactionId) {
+		for (Transaction t : transactions) {
+		    if (t.getId().equals(transactionId)) {
+		        return t;
+		    }
+		}
+		return null;
+	}
 	public List<Transaction> findAll () {
 		return transactions;
 	}
